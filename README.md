@@ -59,3 +59,14 @@ Get board and environment-specific skiplist:
 skipgen includes unit tests that can be run using `go test`. The `make test`
 target will also run 'go vet' and 'golint'. golint may need to be installed
 (`go get -u github.com/golang/lint/golint`)
+
+## Releasing
+
+If travis has a github api key provided (see goreleaser docs), it will upload
+the binaries to the release after making a release in github (or pushing a
+tag). Otherwise, after tagging, a release can be made by running the following,
+where 'v0.1.2' is the recent tag:
+
+    export GITHUB_TOKEN=xxxxxxxxxxyyyyyyyyzzzzzzzzz
+    make clean
+    TRAVIS_TAG=v0.1.2 goreleaser
