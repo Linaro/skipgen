@@ -18,4 +18,4 @@ test:
 	golint
 
 clean:
-	rm -f ./$(FILE)
+	rm -rf ./$(FILE) dist
