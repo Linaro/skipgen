@@ -3,6 +3,11 @@ language: go
 go:
   - 1.9.x
 
+addons:
+  apt:
+    packages:
+      - upx
+
 before_install:
   - go get -v github.com/golang/lint/golint
   - go get -t ./...

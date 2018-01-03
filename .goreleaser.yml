@@ -9,3 +9,5 @@ builds:
     goarm:
       - 6
       - 7
+    hooks:
+      post: find . -name skipgen -exec upx {} +
