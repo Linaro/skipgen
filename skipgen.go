@@ -11,6 +11,9 @@ import (
 	"os"
 )
 
+// This variable is overwritten during build by goreleaser
+var version = "master"
+
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -94,9 +97,6 @@ func usage() {
 }
 
 func main() {
-
-	// This variable is overwritten during build by goreleaser
-	var version = "master"
 
 	boardPtr := flag.String("board", "all", "Board name. If not specified, skips that apply to all boards will be returned.")
 	branchPtr := flag.String("branch", "all", "Branch name. If not specified, skips that apply to all branches will be returned.")
