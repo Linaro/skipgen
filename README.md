@@ -1,7 +1,7 @@
 # Overview
 
-skipgen is a program that will generate a skiplist given a yaml file and
-optionally a board name, branch name, and environment name.
+Skiplist Generator (skipgen) is a program that will generate a skiplist given a
+yaml file and optionally a board name, branch name, and environment name.
 
 [![Build Status](https://travis-ci.org/Linaro/skipgen.svg?branch=master)](https://travis-ci.org/Linaro/skipgen)
 
