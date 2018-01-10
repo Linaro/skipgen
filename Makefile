@@ -9,7 +9,7 @@ help:
 	@echo "     test"
 	@echo "     clean"
 
-$(FILE): test
+$(FILE): test skipgen.go
 	go build
 
 test:

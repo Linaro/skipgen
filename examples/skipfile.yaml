@@ -3,7 +3,6 @@ skiplist:
     url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
     environments:
       - production
-      - staging
     boards:
       - all
     branches:
