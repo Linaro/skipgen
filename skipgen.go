@@ -46,6 +46,9 @@ func (a *StringArray) UnmarshalYAML(unmarshal func(interface{}) error) error {
 // in a slice of strings. If "all" is contained in
 // the slice, then true is always returned.
 func stringInSlice(a string, list []string) bool {
+	if a == "all" {
+		return true
+	}
 	for _, b := range list {
 		if b == a || b == "all" {
 			return true
@@ -98,9 +101,9 @@ func usage() {
 
 func main() {
 
-	boardPtr := flag.String("board", "all", "Board name. If not specified, skips that apply to all boards will be returned.")
-	branchPtr := flag.String("branch", "all", "Branch name. If not specified, skips that apply to all branches will be returned.")
-	environmentPtr := flag.String("environment", "all", "Environment name. If not specified, skips that apply to all environments will be returned.")
+	boardPtr := flag.String("board", "all", "Board name. If not specified, skips for all boards will be returned.")
+	branchPtr := flag.String("branch", "all", "Branch name. If not specified, skips for all branches will be returned.")
+	environmentPtr := flag.String("environment", "all", "Environment name. If not specified, skips for all environments will be returned.")
 	versionPtr := flag.Bool("version", false, "Print skipgen version and exit.")
 	flag.Parse()
 

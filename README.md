@@ -17,9 +17,9 @@ binary.
 
 ## Example Usage
 
+Show all skips available:
+
     $ skipgen examples/skipfile.yaml
-    seccomp_bpf
-    $ skipgen --board x15 --environment production --branch=4.4 examples/skipfile.yaml
     test_verifier
     test_tag
     test_maps
@@ -28,6 +28,12 @@ binary.
     test_progs
     test_align
     ...
+
+Show skips that apply to the x15 board in the production environment and branch 4.4:
+
+    ./skipgen --board=x15 --environment=staging --branch=4.4 examples/skipfile.yaml 
+    run_vmtests
+    seccomp_bpf
 
 ## Skipfile Format
 
