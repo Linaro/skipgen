@@ -49,17 +49,6 @@ See [examples/skipfile.yaml](examples/skipfile.yaml).
 5. make skipgen
 6. `./skipgen`
 
-## Development
-
-Print usage:
-`$ go run skipgen.go`
-
-Get default skiplist:
-`$ go run skipgen.go examples/skipfile.yaml`
-
-Get board and environment-specific skiplist:
-`$ go run skipgen.go --board x15 --environment production`examples/skipfile.yaml
-
 ## Testing
 
 skipgen includes unit tests that can be run using `go test`. The `make test`
