@@ -80,11 +80,11 @@ skiplist:
 
     t.Run("getSkipfileContents", func(t *testing.T) {
 		if getSkipfileContents("x15", "4.4", "production", skips) != 
-`test_maps
-test_lru_map
+`run_vmtests
 test_lpm_map
+test_lru_map
+test_maps
 test_progs
-run_vmtests
 `{
 			t.Errorf("Incorrect Skipfile Contents")
 		}

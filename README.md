@@ -20,18 +20,19 @@ binary.
 Show all skips available:
 
     $ skipgen examples/skipfile.yaml
-    test_verifier
-    test_tag
-    test_maps
-    test_lru_map
-    test_lpm_map
-    test_progs
-    test_align
+    breakpoint_test_arm64
+    ftracetest
+    fw_filesystem.sh
+    pstore_tests
+    run.sh
+    run_fuse_test.sh
+    run_vmtests
+    seccomp_bpf
     ...
 
 Show skips that apply to the x15 board in the production environment and branch 4.4:
 
-    ./skipgen --board=x15 --environment=staging --branch=4.4 examples/skipfile.yaml 
+    $ skipgen --board=x15 --environment=staging --branch=4.4 examples/skipfile.yaml
     run_vmtests
     seccomp_bpf
 
