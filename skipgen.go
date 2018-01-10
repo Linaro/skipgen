@@ -4,11 +4,12 @@
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
-	"gopkg.in/yaml.v2"
 	"flag"
+	"fmt"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
 	"os"
+	"sort"
 )
 
 // This variable is overwritten during build by goreleaser
@@ -80,16 +81,20 @@ func parseSkipfile(buf []byte) (Skipfile, error){
 // getSkipfileContents returns a string containing a skipfile
 // given a board, environment, branch, and Skipfile struct.
 func getSkipfileContents(board string, branch string, environment string, skips Skipfile) (string){
-	var buf string
-	buf = ""
+	var skiplist []string
 	for _, skip := range skips.Skiplist {
 		if stringInSlice(board, skip.Boards) &&
 		   stringInSlice(branch, skip.Branches) &&
 		   stringInSlice(environment, skip.Environments) {
 			for _, test := range skip.Tests {
-				buf = buf + fmt.Sprintf("%s\n", test)
+				skiplist = append(skiplist, test)
 			}
 		}
+	}
+	sort.Strings(skiplist)
+	var buf string
+	for _, test := range skiplist {
+		buf = buf + fmt.Sprintf("%s\n", test)
 	}
 	return buf
 }
