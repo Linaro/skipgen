@@ -100,7 +100,7 @@ func getSkipfileContents(board string, branch string, environment string, skips 
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "Usage:\n    %s [--board <boardname>] [--branch <branchname>] [--environment <environmentname] <skipfile.yaml> \n", os.Args[0])
+	fmt.Fprintf(os.Stderr, "Usage:\n    %s [--board <boardname>] [--branch <branchname>] [--environment <environmentname>] <skipfile.yaml> \n", os.Args[0])
 	os.Exit(1)
 }
 
