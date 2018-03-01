@@ -24,19 +24,6 @@ func TestStringInSliceNegative(t *testing.T) {
 func TestSkipAll(t *testing.T) {
 
 	skipAll := `
-matrix:
-  environments:
-    - production
-    - staging
-  boards:
-    - x15
-    - juno
-    - hikey
-  branches:
-    - 4.4
-    - 4.9
-    - mainline
-
 skiplist:
   - reason: kernel tests baselining
     url: https://projects.linaro.org/projects/CTT/queues/issue/CTT-585
@@ -119,14 +106,6 @@ test_progs
 func TestSkipMinimum(t *testing.T) {
 
 	skipAll := `
-matrix:
-  environments:
-    - production
-  boards:
-    - x15
-  branches:
-    - 4.4
-
 skiplist:
   - reason: Some test reason
     url: https://bugs.linaro.org/show_bug.cgi?id=3145
