@@ -109,14 +109,10 @@ func TestSkipMinimum(t *testing.T) {
 skiplist:
   - reason: Some test reason
     url: https://bugs.linaro.org/show_bug.cgi?id=3145
-    environments:
-      - production
-    boards:
-      - x15
-    branches:
-      - "4.4"
-    tests:
-      - run_vmtests
+    environments: production # Test UnmarshallYAML
+    boards: x15 # Test UnmarshallYAML
+    branches: "4.4" # Test UnmarshallYAML
+    tests: run_vmtests # Test UnmarshallYAML
 `
 	skips, err := parseSkipfile([]byte(skipAll))
 	if err != nil {

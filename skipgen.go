@@ -66,7 +66,7 @@ type Skipfile struct {
 		Environments StringArray
 		Boards StringArray
 		Branches StringArray
-		Tests []string
+		Tests StringArray
 	}
 }
 
