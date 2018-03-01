@@ -87,7 +87,9 @@ func getSkipfileContents(board string, branch string, environment string, skips 
 		   stringInSlice(branch, skip.Branches) &&
 		   stringInSlice(environment, skip.Environments) {
 			for _, test := range skip.Tests {
-				skiplist = append(skiplist, test)
+				if ! stringInSlice(test, skiplist) {
+					skiplist = append(skiplist, test)
+				}
 			}
 		}
 	}

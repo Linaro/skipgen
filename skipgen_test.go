@@ -66,7 +66,18 @@ skiplist:
       - mainline
     tests:
       - run_vmtests
+  - reason: duplicate skip for specific board combination
+    url: https://bugs.linaro.org/show_bug.cgi?id=3145
+    environments:
+      - production
+    boards:
+      - x86
+    branches:
+      - 4.14
+    tests:
+      - run_vmtests
 `
+
 	skips, err := parseSkipfile([]byte(skipAll))
 	if err != nil {
 		t.Errorf("Unexpected error parsing yaml, %s", err)
@@ -79,7 +90,20 @@ skiplist:
 	})
 
     t.Run("getSkipfileContents", func(t *testing.T) {
-		if getSkipfileContents("x15", "4.4", "production", skips) != 
+		if getSkipfileContents("x15", "4.4", "production", skips) !=
+`run_vmtests
+test_lpm_map
+test_lru_map
+test_maps
+test_progs
+`{
+			t.Errorf("Incorrect Skipfile Contents")
+		}
+	})
+
+	// Test deduplication, and 'all'
+    t.Run("getSkipfileContents", func(t *testing.T) {
+		if getSkipfileContents("all", "all", "all", skips) !=
 `run_vmtests
 test_lpm_map
 test_lru_map
